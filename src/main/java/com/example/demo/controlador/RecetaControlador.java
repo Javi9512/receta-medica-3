@@ -1,0 +1,45 @@
+package com.example.demo.controlador;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entidades.Receta;
+import com.example.demo.servicio.ServicioReceta;
+
+@RestController
+@RequestMapping(value="/recetas")
+public class RecetaControlador {
+	
+	@Autowired
+	private ServicioReceta servicioReceta;
+	
+	@GetMapping
+	public ResponseEntity<List<Receta>> listarReceta(){
+		List<Receta> recetas=servicioReceta.listAllReceta();
+		if(recetas.isEmpty()) {
+			System.out.println("No existe recetas");
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(recetas);
+	}
+	
+	@PostMapping
+	
+	public ResponseEntity<Receta> ingresarReceta(@Valid @RequestBody Receta receta){
+		
+		Receta crearReceta=servicioReceta.createReceta(receta);
+		return ResponseEntity.status(HttpStatus.CREATED).body(crearReceta);
+		
+	}
+
+}
