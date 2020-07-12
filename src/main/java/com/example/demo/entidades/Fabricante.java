@@ -20,4 +20,5 @@ public class Fabricante {
 	private String correo;
 	private String ciudad;
 	private String pais;
+	private String telefono;
 }

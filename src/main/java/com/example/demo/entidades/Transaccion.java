@@ -24,7 +24,7 @@ public class Transaccion {
 	private Long id;
 	
 	private Long cantidadProducto;
-	private String persona;
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_detalle")

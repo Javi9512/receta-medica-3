@@ -28,7 +28,7 @@ public class DetalleTransaccion {
 	private Long id;
 	
 	private Double totalVenta;
-	
+	private String persona;
 	
 	@Column(name = "fecha_emision")
 	@Temporal(TemporalType.TIMESTAMP)
