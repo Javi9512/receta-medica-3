@@ -47,7 +47,6 @@ public class SerivcioIndicacionGenralImpl implements ServicioIndicacionGeneral {
 		}
 		ind.setConcepto(indicacionGeneral.getConcepto());
 		return indicacionGeneralRepositorio.save(ind);
-		
 	}
 
 	@Override

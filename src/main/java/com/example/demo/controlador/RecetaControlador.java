@@ -10,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.example.demo.entidades.Receta;
 import com.example.demo.servicio.ServicioReceta;
@@ -43,12 +45,24 @@ public class RecetaControlador {
 		
 	}
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Receta> getById(@PathVariable("id") Long id){
-		Receta receta=servicioReceta.getReceta(id);
-		if(receta==null) {
+	public ResponseEntity<Receta> getReceta(@PathVariable("id") Long id){
+		Receta receta =servicioReceta.getReceta(id);
+		if (receta==null) {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(receta);
 	}
+	
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Receta> updateReceta(@PathVariable("id") Long id,@RequestBody Receta receta){
+		receta.setId(id);
+		Receta recetaBD=servicioReceta.updateReceta(receta);
+		
+		if(recetaBD==null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(recetaBD);
+	}
+	
 
 }

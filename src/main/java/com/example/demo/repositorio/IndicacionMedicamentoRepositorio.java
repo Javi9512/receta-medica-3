@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.entidades.IndicacionGeneral;
 import com.example.demo.entidades.IndicacionMedicamento;
 import com.example.demo.entidades.Receta;
 

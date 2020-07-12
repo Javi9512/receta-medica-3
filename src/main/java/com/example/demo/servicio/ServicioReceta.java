@@ -8,7 +8,7 @@ import com.example.demo.entidades.Receta;
 
 public interface ServicioReceta {
 	
-public List<Receta> listAllReceta();
+	public List<Receta> listAllReceta();
 	
 	public Receta getReceta(Long id);
 	
@@ -16,7 +16,7 @@ public List<Receta> listAllReceta();
 	
 	public Receta updateReceta(Receta receta);
 	
-	//public Receta deleteReceta(Long id);
+	public Receta deleteReceta(Long id);
 	
 
 

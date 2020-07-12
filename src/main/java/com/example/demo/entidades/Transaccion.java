@@ -1,4 +1,6 @@
 package com.example.demo.entidades;
+
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,31 +10,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tbl_indicacion_medicamento")
+@Table(name = "tbl_transaccion")
 @Data
-@AllArgsConstructor @NoArgsConstructor @Builder
-public class IndicacionMedicamento {
+public class Transaccion {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String dosis;
-	private Double diasTratamiento;
-	private Double frecuencia;
+	private Long cantidadProducto;
+	private String persona;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "receta_id")
+	@JoinColumn(name = "id_detalle")
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-	private Receta receta;
+	private DetalleTransaccion detalleTransaccion;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_medicamento")
