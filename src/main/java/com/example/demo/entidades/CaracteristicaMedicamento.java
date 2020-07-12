@@ -41,7 +41,7 @@ public class CaracteristicaMedicamento {
 	private String composicion;
 	
 	@JoinColumn(name = "registro_sanitario")
-	private Double numeroRegistroSanitario;
+	private String numeroRegistroSanitario;
 	
 	@JoinColumn(name = "fecha_expiracion")
 	@Temporal(TemporalType.TIMESTAMP)
