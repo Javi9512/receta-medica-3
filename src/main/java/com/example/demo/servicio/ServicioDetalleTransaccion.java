@@ -2,7 +2,6 @@ package com.example.demo.servicio;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.entidades.DetalleTransaccion;
 

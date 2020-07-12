@@ -1,9 +1,8 @@
 package com.example.demo.entidades;
 
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -41,15 +40,9 @@ public class Enfermedad {
 	private boolean transmisible;
 	private String mortalidad;
 	
-	
-	 @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	    @JoinTable(name = "enfermedad_medicamento",
-	            joinColumns = {
-	                    @JoinColumn(name = "enfermedad_id", referencedColumnName = "id",
-	                            nullable = false, updatable = false)},
-	            inverseJoinColumns = {
-	                    @JoinColumn(name = "medicamento_id", referencedColumnName = "id",
-	                            nullable = false, updatable = false)})
-	
+	 
+	 @ManyToMany(mappedBy = "enfermedades", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+
 	    private List<Medicamento> medicamentos ;
+	
 }

@@ -1,9 +1,8 @@
 package com.example.demo.entidades;
 
 import java.util.Date;
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -64,7 +64,13 @@ public class Medicamento {
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private CaracteristicaMedicamento caracteristicaMedicamento;
 	
-	@ManyToMany(mappedBy = "medicamentos", fetch = FetchType.LAZY)
-
-    private List<Enfermedad> enfermedades ;
+	 @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	    @JoinTable(name = "enfermedad_medicamento",
+	        joinColumns = {
+	            @JoinColumn(name = "medicamento_id")
+	        },
+	        inverseJoinColumns = {
+	            @JoinColumn(name = "enfermedad_id")
+	        })
+	    private List<Enfermedad> enfermedades;
 }
