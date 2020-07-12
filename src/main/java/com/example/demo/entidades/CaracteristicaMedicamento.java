@@ -43,6 +43,7 @@ public class CaracteristicaMedicamento {
 	@JoinColumn(name = "registro_sanitario")
 	private String numeroRegistroSanitario;
 	
+	
 	@JoinColumn(name = "fecha_expiracion")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaExpiracion;
