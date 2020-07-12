@@ -17,4 +17,5 @@ public interface ServicioMedicamento {
 	public Medicamento updateMedicamento(Medicamento Medicamento);
 	
 	public Medicamento deleteMedicamento(Long id);
+	
 }

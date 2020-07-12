@@ -64,4 +64,5 @@ public class MedicamentoControlador {
 		return ResponseEntity.ok(medicamentoBD);
 	}
 	
+	
 }
