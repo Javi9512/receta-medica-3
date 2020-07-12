@@ -21,7 +21,7 @@ import com.example.demo.servicio.ServicioCaracteristicaMedicamento;
 @RestController
 @RequestMapping(value="/caracteristicas-medicamento")
 public class CaracteristicaMedicamentoControlador {
-
+	CaracteristicaMedicamento caracteristica;
 	@Autowired
 	private ServicioCaracteristicaMedicamento servicioCaracteristicaMedicamento;
 	
@@ -40,6 +40,7 @@ public class CaracteristicaMedicamentoControlador {
 	public ResponseEntity<CaracteristicaMedicamento> ingresarCaracteristicaMedicamento(@Valid @RequestBody CaracteristicaMedicamento caracteristicaMedicamento){
 		
 		CaracteristicaMedicamento crearCaracteristicaMedicamento=servicioCaracteristicaMedicamento.createCaracteristicaMedicamento(caracteristicaMedicamento);
+		caracteristica = crearCaracteristicaMedicamento;
 		return ResponseEntity.status(HttpStatus.CREATED).body(crearCaracteristicaMedicamento);
 		
 	}
@@ -61,6 +62,13 @@ public class CaracteristicaMedicamentoControlador {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(caracteristicaMedicamentoBD);
+	}
+	@GetMapping(value = "/ultimo")
+	public ResponseEntity<CaracteristicaMedicamento> obtenrUltimo(){
+		if(caracteristica==null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(caracteristica);
 	}
 	
 
