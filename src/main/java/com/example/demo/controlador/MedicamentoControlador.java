@@ -33,6 +33,9 @@ public class MedicamentoControlador {
 			System.out.println("No existe medicamentos");
 			return ResponseEntity.noContent().build();
 		}
+		for (Medicamento medicamento : medicamentos) {
+			medicamento.setEnfermedades(null);
+		}
 		return ResponseEntity.ok(medicamentos);
 	}
 	
