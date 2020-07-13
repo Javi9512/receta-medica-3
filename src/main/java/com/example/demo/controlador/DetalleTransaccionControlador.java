@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidades.DetalleTransaccion;
+import com.example.demo.entidades.TipoTransaccion;
 import com.example.demo.servicio.ServicioDetalleTransaccion;
 
 @RestController
 @RequestMapping(value="/detalles-transacciones")
 public class DetalleTransaccionControlador {
+	
+	DetalleTransaccion ultimo;
 	@Autowired
 	private ServicioDetalleTransaccion servicioDetalleTransaccion;
 	
@@ -39,6 +42,7 @@ public class DetalleTransaccionControlador {
 	public ResponseEntity<DetalleTransaccion> ingresarDetalleTransaccion(@Valid @RequestBody DetalleTransaccion detalleTransaccion){
 		
 		DetalleTransaccion crearDetalleTransaccion=servicioDetalleTransaccion.createDetalleTransaccion(detalleTransaccion);
+		ultimo=crearDetalleTransaccion;
 		return ResponseEntity.status(HttpStatus.CREATED).body(crearDetalleTransaccion);
 		
 	}
@@ -69,6 +73,13 @@ public class DetalleTransaccionControlador {
 			
 		}
 		return ResponseEntity.notFound().build();
+	}
+	@GetMapping(value = "/ultimo")
+	public ResponseEntity<DetalleTransaccion> obtenrUltimo(){
+		if(ultimo==null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(ultimo);
 	}
 
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entidades.CaracteristicaMedicamento;
 import com.example.demo.entidades.TipoTransaccion;
 
 import com.example.demo.servicio.ServicioTipoTransaccion;
@@ -22,7 +23,7 @@ import com.example.demo.servicio.ServicioTipoTransaccion;
 @RestController
 @RequestMapping(value="/tipos-transacciones")
 public class TipoTransaccionControlador {
-
+	TipoTransaccion ultimo;
 	@Autowired
 	private ServicioTipoTransaccion servicioTipoTransaccion;
 	
@@ -41,6 +42,7 @@ public class TipoTransaccionControlador {
 	public ResponseEntity<TipoTransaccion> ingresarTipoTransaccion(@Valid @RequestBody TipoTransaccion tipoTransaccion){
 		
 		TipoTransaccion crearTipoTransaccion=servicioTipoTransaccion.createTipoTransaccion(tipoTransaccion);
+		ultimo=crearTipoTransaccion;
 		return ResponseEntity.status(HttpStatus.CREATED).body(crearTipoTransaccion);
 		
 	}
@@ -72,4 +74,13 @@ public class TipoTransaccionControlador {
 		}
 		return ResponseEntity.notFound().build();
 	}
+	
+	@GetMapping(value = "/ultimo")
+	public ResponseEntity<TipoTransaccion> obtenrUltimo(){
+		if(ultimo==null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(ultimo);
+	}
+	
 }
