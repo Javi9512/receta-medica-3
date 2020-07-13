@@ -51,14 +51,14 @@ public class ServicioRecetaImpl implements ServicioReceta {
 	}
 
 	@Override
-	public Receta deleteReceta(Long id) {
+	public void deleteReceta(Long id) {
 		// TODO Auto-generated method stub
 		Receta recetabd=getReceta(id);
 		if(recetabd==null) {
-			return null;
+			return;
 		}
 		recetaRepositorio.delete(recetabd);
-		return null ;
+	
 	}
 
 }

@@ -14,5 +14,5 @@ public interface ServicioCondicionAlmacenamiento {
 	
 	public CondicionAlmacenamiento updateCondicionAlmacenamiento(CondicionAlmacenamiento CondicionAlmacenamiento);
 	
-	public CondicionAlmacenamiento deleteCondicionAlmacenamiento(Long id);
+	public void deleteCondicionAlmacenamiento(Long id);
 }

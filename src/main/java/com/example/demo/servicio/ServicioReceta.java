@@ -16,7 +16,7 @@ public interface ServicioReceta {
 	
 	public Receta updateReceta(Receta receta);
 	
-	public Receta deleteReceta(Long id);
+	public void deleteReceta(Long id);
 	
 
 

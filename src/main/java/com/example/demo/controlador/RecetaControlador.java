@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.example.demo.entidades.CondicionAlmacenamiento;
 import com.example.demo.entidades.Receta;
 import com.example.demo.servicio.ServicioReceta;
 
 @RestController
 @RequestMapping(value="/recetas")
 public class RecetaControlador {
-	
+	Receta ultimo;
 	@Autowired
 	private ServicioReceta servicioReceta;
 	
@@ -41,6 +41,7 @@ public class RecetaControlador {
 	public ResponseEntity<Receta> ingresarReceta(@Valid @RequestBody Receta receta){
 		
 		Receta crearReceta=servicioReceta.createReceta(receta);
+		ultimo =crearReceta;
 		return ResponseEntity.status(HttpStatus.CREATED).body(crearReceta);
 		
 	}
@@ -62,6 +63,15 @@ public class RecetaControlador {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(recetaBD);
+	}
+	@GetMapping("/eliminar/{id}")
+	public ResponseEntity<Receta> deleteUser( @PathVariable(name="id") Long id) {
+		try {
+			servicioReceta.deleteReceta(id);
+		} catch (Exception e) {
+			
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
 

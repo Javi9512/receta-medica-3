@@ -49,14 +49,12 @@ public class SerivcioCondicionAlmacenamiento implements ServicioCondicionAlmacen
 	}
 
 	@Override
-	public CondicionAlmacenamiento deleteCondicionAlmacenamiento(Long id) {
+	public void deleteCondicionAlmacenamiento(Long id) {
 		// TODO Auto-generated method stub
 		CondicionAlmacenamiento condicionAlmacenamientobd=getCondicionAlmacenamiento(id);
-		if(condicionAlmacenamientobd==null) {
-			return null;
-		}
+		
 		condicionAlmacenamientoRepositorio.delete(condicionAlmacenamientobd);
-		return null ;
+		
 	}
 
 }
