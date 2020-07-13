@@ -38,6 +38,6 @@ public class Receta {
 	private Long idPaciente;
 	
 	@Column(name = "id_medico")
-	private Long idMedico;
+	private String idMedico;
 
 }
