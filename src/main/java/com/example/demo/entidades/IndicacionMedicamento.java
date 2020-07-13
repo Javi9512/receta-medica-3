@@ -27,7 +27,7 @@ public class IndicacionMedicamento {
 	
 	private String dosis;
 	private Double diasTratamiento;
-	private Double frecuencia;
+	private String frecuencia;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "receta_id")
