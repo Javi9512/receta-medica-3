@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entidades.CaracteristicaMedicamento;
 import com.example.demo.entidades.CondicionAlmacenamiento;
 import com.example.demo.entidades.Receta;
 import com.example.demo.servicio.ServicioReceta;
@@ -72,6 +73,13 @@ public class RecetaControlador {
 			
 		}
 		return ResponseEntity.notFound().build();
+	}
+	@GetMapping(value = "/ultimo")
+	public ResponseEntity<Receta> obtenrUltimo(){
+		if(ultimo==null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(ultimo);
 	}
 	
 
