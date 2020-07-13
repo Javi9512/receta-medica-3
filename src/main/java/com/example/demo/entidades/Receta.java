@@ -35,9 +35,9 @@ public class Receta {
 	private Date fecha;
 	
 	@Column(name = "id_paciente")
-	private String idPaciente;
+	private Long idPaciente;
 	
 	@Column(name = "id_medico")
-	private String idMedico;
+	private Long idMedico;
 
 }
