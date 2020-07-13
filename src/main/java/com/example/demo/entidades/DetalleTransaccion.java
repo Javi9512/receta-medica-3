@@ -37,7 +37,6 @@ public class DetalleTransaccion {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_tipo_transaccion")
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-	
 	private TipoTransaccion tipoTransaccion;
 
 }
