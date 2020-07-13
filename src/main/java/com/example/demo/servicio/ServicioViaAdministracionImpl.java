@@ -47,9 +47,12 @@ public class ServicioViaAdministracionImpl implements ServicioViaAdministracion{
 	}
 
 	@Override
-	public ViaAdministracion deleteViaAdministracion(Long id) {
+	public void deleteViaAdministracion(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		ViaAdministracion viaAdministracionbd=getViaAdministracion(id);
+		
+		viaAdministracionRepositorio.delete(viaAdministracionbd);
+		
 	}
 
 }

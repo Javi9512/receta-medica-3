@@ -48,13 +48,12 @@ public class ServicioEnfermedadImpl implements ServicioEnfermedad{
 	}
 
 	@Override
-	public Enfermedad deleteEnfermedad(Long id) {
+	public void deleteEnfermedad(Long id) {
 		// TODO Auto-generated method stub
 		Enfermedad enfermedadbd=getEnfermedad(id);
 		if(enfermedadbd==null) {
-			return null;
+			return;
 		}
 		enfermedadRepositorio.delete(enfermedadbd);
-		return null ;
 	}
 }

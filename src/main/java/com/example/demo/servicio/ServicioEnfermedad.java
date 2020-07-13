@@ -14,5 +14,5 @@ public List<Enfermedad> listAllEnfermedad();
 	
 	public Enfermedad updateEnfermedad(Enfermedad enfermedad);
 	
-	public Enfermedad deleteEnfermedad(Long id);
+	public void deleteEnfermedad(Long id);
 }

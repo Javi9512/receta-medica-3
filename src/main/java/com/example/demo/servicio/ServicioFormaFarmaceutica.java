@@ -16,5 +16,5 @@ public interface ServicioFormaFarmaceutica {
 	
 	public FormaFarmaceutica updateFormaFarmaceutica(FormaFarmaceutica FormaFarmaceutica);
 	
-	public FormaFarmaceutica deleteFormaFarmaceutica(Long id);
+	public void deleteFormaFarmaceutica(Long id);
 }

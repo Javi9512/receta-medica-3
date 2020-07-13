@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
 import com.example.demo.entidades.IndicacionMedicamento;
+
 import com.example.demo.entidades.Receta;
 import com.example.demo.repositorio.IndicacionMedicamentoRepositorio;
 
@@ -50,9 +50,12 @@ public class ServicioIndicacionMedicamentoImpl implements ServicioIndicacionMedi
 	}
 
 	@Override
-	public IndicacionMedicamento deleteIndicacionMedicamento(Long id) {
+	public void deleteIndicacionMedicamento(Long id) {
+		// TODO Auto-generated method stub
+		IndicacionMedicamento indicacionMedicamentobd=getIndicacionMedicamento(id);
 		
-		return null;
+		indicacionMedicamentoRepositorio.delete(indicacionMedicamentobd);
+		
 	}
 	
 	@Override

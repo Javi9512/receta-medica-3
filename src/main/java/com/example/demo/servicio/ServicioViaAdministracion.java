@@ -16,5 +16,5 @@ public interface ServicioViaAdministracion {
 	
 	public ViaAdministracion updateViaAdministracion(ViaAdministracion ViaAdministracion);
 	
-	public ViaAdministracion deleteViaAdministracion(Long id);
+	public void deleteViaAdministracion(Long id);
 }

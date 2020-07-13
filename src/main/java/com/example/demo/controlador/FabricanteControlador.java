@@ -62,4 +62,13 @@ public class FabricanteControlador {
 		}
 		return ResponseEntity.ok(fabricanteBD);
 	}
+	@GetMapping("/eliminar/{id}")
+	public ResponseEntity<Fabricante> eliminar( @PathVariable(name="id") Long id) {
+		try {
+			servicioFabricante.deleteFabricante(id);
+		} catch (Exception e) {
+			
+		}
+		return ResponseEntity.notFound().build();
+	}
 }

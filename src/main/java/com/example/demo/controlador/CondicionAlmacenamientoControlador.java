@@ -63,14 +63,13 @@ public class CondicionAlmacenamientoControlador {
 		return ResponseEntity.ok(condicionAlmacenamientoBD);
 	}
 	@GetMapping("/eliminar/{id}")
-	public ResponseEntity<CondicionAlmacenamiento> deleteUser( @PathVariable(name="id") Long id) {
+	public ResponseEntity<CondicionAlmacenamiento> eliminar( @PathVariable(name="id") Long id) {
 		try {
 			servicioCondicionAlmacenamiento.deleteCondicionAlmacenamiento(id);
 		} catch (Exception e) {
 			
 		}
 		return ResponseEntity.notFound().build();
-	
 	}
 	
 

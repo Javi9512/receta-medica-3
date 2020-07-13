@@ -48,14 +48,13 @@ public class ServicioFabricanteImpl implements ServicioFabricante {
 	}
 
 	@Override
-	public Fabricante deleteFabricante(Long id) {
+	public void deleteFabricante(Long id) {
 		// TODO Auto-generated method stub
 		Fabricante fabricantebd=getFabricante(id);
 		if(fabricantebd==null) {
-			return null;
+			return ;
 		}
 		fabricanteRepositorio.delete(fabricantebd);
-		return null ;
 	}
 	
 }

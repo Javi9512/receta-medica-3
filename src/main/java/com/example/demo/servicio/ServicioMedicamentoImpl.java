@@ -59,14 +59,13 @@ public class ServicioMedicamentoImpl implements ServicioMedicamento {
 	}
 
 	@Override
-	public Medicamento deleteMedicamento(Long id) {
+	public void deleteMedicamento(Long id) {
 		// TODO Auto-generated method stub
 		Medicamento medicamentobd=getMedicamento(id);
 		if(medicamentobd==null) {
-			return null;
+			return;
 		}
 		medicamentoRepositorio.delete(medicamentobd);
-		return null ;
 	}
 
 }

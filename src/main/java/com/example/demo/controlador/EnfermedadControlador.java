@@ -3,7 +3,6 @@ package com.example.demo.controlador;
 import java.util.List;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Null;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidades.Enfermedad;
-import com.example.demo.entidades.Medicamento;
+
 import com.example.demo.servicio.ServicioEnfermedad;
 
 @RestController
@@ -67,6 +66,15 @@ public class EnfermedadControlador {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(enfermedadBD);
+	}
+	@GetMapping("/eliminar/{id}")
+	public ResponseEntity<Enfermedad> eliminar( @PathVariable(name="id") Long id) {
+		try {
+			servicioEnfermedad.deleteEnfermedad(id);
+		} catch (Exception e) {
+			
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
 }

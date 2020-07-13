@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidades.Medicamento;
+
 import com.example.demo.servicio.ServicioMedicamento;
 
 @RestController
@@ -65,6 +66,15 @@ public class MedicamentoControlador {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(medicamentoBD);
+	}
+	@GetMapping("/eliminar/{id}")
+	public ResponseEntity<Medicamento> eliminar( @PathVariable(name="id") Long id) {
+		try {
+			servicioMedicamento.deleteMedicamento(id);
+		} catch (Exception e) {
+			
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
 	

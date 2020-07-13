@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.example.demo.entidades.IndicacionMedicamento;
+
 import com.example.demo.entidades.Receta;
 
 import com.example.demo.servicio.ServicioIndicacionMedicamento;
@@ -73,6 +73,15 @@ public class IndicacionMedicamentoControlador {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(indicacionBD);
+	}
+	@GetMapping("/eliminar/{id}")
+	public ResponseEntity<IndicacionMedicamento> eliminar( @PathVariable(name="id") Long id) {
+		try {
+			servicioIndicacionMedicamento.deleteIndicacionMedicamento(id);
+		} catch (Exception e) {
+			
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
  

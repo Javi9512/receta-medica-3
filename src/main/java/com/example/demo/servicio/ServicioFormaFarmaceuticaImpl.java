@@ -48,13 +48,12 @@ public class ServicioFormaFarmaceuticaImpl implements ServicioFormaFarmaceutica 
 	}
 
 	@Override
-	public FormaFarmaceutica deleteFormaFarmaceutica(Long id) {
+	public void deleteFormaFarmaceutica(Long id) {
 		// TODO Auto-generated method stub
 		FormaFarmaceutica formaFarmaceuticabd=getFormaFarmaceutica(id);
 		if(formaFarmaceuticabd==null) {
-			return null;
+			return;
 		}
 		formaFarmaceuticaRepositorio.delete(formaFarmaceuticabd);
-		return null ;
 	}
 }

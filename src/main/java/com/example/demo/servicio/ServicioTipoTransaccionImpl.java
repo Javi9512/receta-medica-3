@@ -49,13 +49,12 @@ public class ServicioTipoTransaccionImpl implements ServicioTipoTransaccion{
 	}
 
 	@Override
-	public TipoTransaccion deleteTipoTransaccion(Long id) {
+	public void deleteTipoTransaccion(Long id) {
 		// TODO Auto-generated method stub
 		TipoTransaccion tipoTipoTransaccionbd=getTipoTransaccion(id);
 		if(tipoTipoTransaccionbd==null) {
-			return null;
+			return;
 		}
 		tipoTipoTransaccionRepositorio.delete(tipoTipoTransaccionbd);
-		return null ;
 	}
 }

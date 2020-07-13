@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidades.FormaFarmaceutica;
+
 import com.example.demo.servicio.ServicioFormaFarmaceutica;
 
 @RestController
@@ -61,5 +62,14 @@ public class FormaFarmaceuticaControlador {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(formaFarmaceuticaBD);
+	}
+	@GetMapping("/eliminar/{id}")
+	public ResponseEntity<FormaFarmaceutica> eliminar( @PathVariable(name="id") Long id) {
+		try {
+			servicioFormaFarmaceutica.deleteFormaFarmaceutica(id);
+		} catch (Exception e) {
+			
+		}
+		return ResponseEntity.notFound().build();
 	}
 }

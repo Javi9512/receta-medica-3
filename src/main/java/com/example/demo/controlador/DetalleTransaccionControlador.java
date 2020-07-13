@@ -61,5 +61,14 @@ public class DetalleTransaccionControlador {
 		}
 		return ResponseEntity.ok(detalleTransaccionBD);
 	}
+	@GetMapping("/eliminar/{id}")
+	public ResponseEntity<DetalleTransaccion> eliminar( @PathVariable(name="id") Long id) {
+		try {
+			servicioDetalleTransaccion.deleteDetalleTransaccion(id);
+		} catch (Exception e) {
+			
+		}
+		return ResponseEntity.notFound().build();
+	}
 
 }

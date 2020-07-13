@@ -50,10 +50,14 @@ public class SerivcioIndicacionGenralImpl implements ServicioIndicacionGeneral {
 	}
 
 	@Override
-	public IndicacionGeneral deleteIndicacionGeneral(Long id) {
+	public void deleteIndicacionGeneral(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		IndicacionGeneral indicacionGeneralbd=getIndicacionGeneral(id);
+		
+		indicacionGeneralRepositorio.delete(indicacionGeneralbd);
+		
 	}
+	
 	@Override
 	public List<IndicacionGeneral> findByReceta(Receta receta){
 		return indicacionGeneralRepositorio.findByReceta(receta);

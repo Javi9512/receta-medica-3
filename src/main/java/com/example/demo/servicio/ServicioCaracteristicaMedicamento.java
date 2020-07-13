@@ -14,5 +14,5 @@ public interface ServicioCaracteristicaMedicamento {
 	
 	public CaracteristicaMedicamento updateCaracteristicaMedicamento(CaracteristicaMedicamento caracteristicaMedicamento);
 	
-	public CaracteristicaMedicamento deleteCaracteristicaMedicamento(Long id);
+	public void deleteCaracteristicaMedicamento(Long id);
 }

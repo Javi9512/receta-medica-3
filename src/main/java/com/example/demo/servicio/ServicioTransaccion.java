@@ -13,5 +13,5 @@ public List<Transaccion> listAllTransaccion();
 	
 	public Transaccion updateTransaccion(Transaccion transaccion);
 	
-	public Transaccion deleteTransaccion(Long id);
+	public void deleteTransaccion(Long id);
 }

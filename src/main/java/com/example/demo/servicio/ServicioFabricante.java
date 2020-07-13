@@ -14,5 +14,5 @@ public interface ServicioFabricante {
 	
 	public Fabricante updateFabricante(Fabricante Fabricante);
 	
-	public Fabricante deleteFabricante(Long id);
+	public void deleteFabricante(Long id);
 }

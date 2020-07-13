@@ -49,13 +49,13 @@ public class ServicioCaracteristicaMedicamentoImpl implements ServicioCaracteris
 	}
 
 	@Override
-	public CaracteristicaMedicamento deleteCaracteristicaMedicamento(Long id) {
+	public void deleteCaracteristicaMedicamento(Long id) {
 		// TODO Auto-generated method stub
 		CaracteristicaMedicamento caracteristicaMedicamentobd=getCaracteristicaMedicamento(id);
 		if(caracteristicaMedicamentobd==null) {
-			return null;
+			return;
 		}
 		caracteristicaMedicamentoRepositorio.delete(caracteristicaMedicamentobd);
-		return null ;
+		
 	}
 }

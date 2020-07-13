@@ -14,7 +14,7 @@ public interface ServicioIndicacionGeneral {
 	public IndicacionGeneral getIndicacionGeneral(Long id);
 	public IndicacionGeneral createIndicacionGeneral(IndicacionGeneral indicacionGeneral);
     public IndicacionGeneral updateIndicacionGeneral(IndicacionGeneral indicacionGeneral);
-    public IndicacionGeneral deleteIndicacionGeneral(Long id);
+    public void deleteIndicacionGeneral(Long id);
     public List<IndicacionGeneral> findByReceta(Receta receta);
 
 }

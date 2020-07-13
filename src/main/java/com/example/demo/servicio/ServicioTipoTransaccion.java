@@ -15,5 +15,5 @@ public interface ServicioTipoTransaccion {
 	
 	public TipoTransaccion updateTipoTransaccion(TipoTransaccion tipoTransaccion);
 	
-	public TipoTransaccion deleteTipoTransaccion(Long id);
+	public void deleteTipoTransaccion(Long id);
 }

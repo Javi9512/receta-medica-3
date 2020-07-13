@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidades.IndicacionGeneral;
+
 import com.example.demo.entidades.Receta;
 import com.example.demo.servicio.ServicioIndicacionGeneral;
 
@@ -72,6 +73,15 @@ public class IndicacionGeneralControlador {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(indicacionBD);
+	}
+	@GetMapping("/eliminar/{id}")
+	public ResponseEntity<IndicacionGeneral> eliminar( @PathVariable(name="id") Long id) {
+		try {
+			servicioIndicacionGeneral.deleteIndicacionGeneral(id);
+		} catch (Exception e) {
+			
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
 }

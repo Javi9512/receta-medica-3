@@ -10,6 +10,6 @@ public interface ServicioIndicacionMedicamento {
 	public IndicacionMedicamento getIndicacionMedicamento(Long id);
 	public IndicacionMedicamento createIndicacionGeneral(IndicacionMedicamento indicacionMedicamento);
 	public IndicacionMedicamento updateIndicacionMedicamento(IndicacionMedicamento indicacionMedicamento);
-	public IndicacionMedicamento deleteIndicacionMedicamento(Long id);
+	public void deleteIndicacionMedicamento(Long id);
 	public List<IndicacionMedicamento> findByReceta(Receta receta);
 }
